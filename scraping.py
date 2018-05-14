@@ -23,3 +23,4 @@ soup = BeautifulSoup(page.text, "html.parser")
 pitches = soup.findAll("table")
 
 print(pitches)
+
