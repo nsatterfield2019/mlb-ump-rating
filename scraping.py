@@ -20,7 +20,23 @@ page = requests.get(dataurl)
 
 soup = BeautifulSoup(page.text, "html.parser")
 
-pitches = soup.findAll("table")
+pitchestable = soup.find("table")
 
-print(pitches)
+pitch_list = pitchestable.findAll("tr")
 
+pitch_list.pop(0)
+
+pitches = [[y.text for y in x.findAll("td")] for x in pitch_list]
+
+#print(pitches)
+
+all_pitches = []
+
+type = [x[9] for x in pitches]
+px = [float(x[-6]) for x in pitches]
+pz = [float(x[-5]) for x in pitches]
+
+for i in range(len(type)):
+    all_pitches.append([type[i], px[i], pz[i]])
+
+print(all_pitches)
