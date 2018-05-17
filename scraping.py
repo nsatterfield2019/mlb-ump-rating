@@ -30,7 +30,7 @@ pitches = [[y.text for y in x.findAll("td")] for x in pitch_list]
 
 #print(pitches)
 
-all_pitches = []
+all_pitches = [["type", "px", "pz" ]]
 
 type = [x[9] for x in pitches]
 px = [float(x[-6]) for x in pitches]
@@ -40,3 +40,19 @@ for i in range(len(type)):
     all_pitches.append([type[i], px[i], pz[i]])
 
 print(all_pitches)
+
+
+
+# finding all pitchers
+
+'''
+url = "http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=9&year=2018&game=gid_2018_05_09_miamlb_chnmlb_1%2F&pitchSel=500779&prevGame=gid_2018_05_09_miamlb_chnmlb_1%2F&prevDate=59&league=mlb"
+
+page = requests.get(url)
+
+soup1 = BeautifulSoup(page.text, "html.parser")
+
+pitcher_list = soup1.findAll("select", attrs={"name": "pitchSel"})
+
+print(pitcher_list)
+'''
