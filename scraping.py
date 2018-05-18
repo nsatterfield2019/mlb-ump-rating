@@ -1,58 +1,66 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = "http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=9&year=2018&game=gid_2018_05_09_miamlb_chnmlb_1%2F&pitchSel=500779&prevGame=gid_2018_05_09_miamlb_chnmlb_1%2F&prevDate=59&league=mlb"
-
-page = requests.get(url)
-
-soup = BeautifulSoup(page.text, "html.parser")
-
-#scraping the data table for one pitcher, will change to all pitchers eventually
-table = soup.findAll("p")
-
-link = table[0].find('a')
-data = "https://www.brooksbaseball.net/pfxVB/" + link['href']
-print(data)
-
-
-dataurl = data
-page = requests.get(dataurl)
-
-soup = BeautifulSoup(page.text, "html.parser")
-
-pitchestable = soup.find("table")
-
-pitch_list = pitchestable.findAll("tr")
-
-pitch_list.pop(0)
-
-pitches = [[y.text for y in x.findAll("td")] for x in pitch_list]
-
-#print(pitches)
-
-all_pitches = [["type", "px", "pz" ]]
-
-type = [x[9] for x in pitches]
-px = [float(x[-6]) for x in pitches]
-pz = [float(x[-5]) for x in pitches]
-
-for i in range(len(type)):
-    all_pitches.append([type[i], px[i], pz[i]])
-
-print(all_pitches)
-
-
-
 # finding all pitchers
 
-'''
+
 url = "http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=9&year=2018&game=gid_2018_05_09_miamlb_chnmlb_1%2F&pitchSel=500779&prevGame=gid_2018_05_09_miamlb_chnmlb_1%2F&prevDate=59&league=mlb"
 
 page = requests.get(url)
 
 soup1 = BeautifulSoup(page.text, "html.parser")
 
-pitcher_list = soup1.findAll("select", attrs={"name": "pitchSel"})
+select = soup1.find("select", attrs={"name": "pitchSel"})
 
-print(pitcher_list)
-'''
+pitchers = select.findAll()
+
+pitchers_numbers = []
+data = []
+
+for pitcher in pitchers:
+    numbers = pitcher['value']
+    pitchers_numbers.append(numbers)
+    print(numbers)
+
+for i in range(len(pitchers_numbers)):
+    url = "http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=9&year=2018&game=gid_2018_05_09_miamlb_chnmlb_1%2F&pitchSel=" + pitchers_numbers[i] + "&prevGame=gid_2018_05_09_miamlb_chnmlb_1%2F&prevDate=59&league=mlb"
+    #print(url)
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, "html.parser")
+    table = soup.findAll("p")
+    link = table[0].find('a')
+    pitch_data = "https://www.brooksbaseball.net/pfxVB/" + link['href']
+    #print(pitch_data)
+    data.append(pitch_data)
+
+all_pitches = [["type", "px", "pz"]]
+
+for i in range(len(data)):
+    dataurl = data[i]
+    page = requests.get(dataurl)
+
+    soup = BeautifulSoup(page.text, "html.parser")
+
+    pitchestable = soup.find("table")
+
+    pitch_list = pitchestable.findAll("tr")
+
+    pitch_list.pop(0)
+
+    pitches = [[y.text for y in x.findAll("td")] for x in pitch_list]
+
+    # print(pitches)
+
+    type = [x[9] for x in pitches]
+    px = [float(x[-6]) for x in pitches]
+    pz = [float(x[-5]) for x in pitches]
+
+    for i in range(len(type)):
+        all_pitches.append([type[i], px[i], pz[i]])
+
+print(all_pitches)
+
+
+
+
+
