@@ -15,6 +15,20 @@ print(player[1])
 
 plt.figure(1)
 
+# strike zone ---
+
+x = [-0.85, 0.85]
+y = [3.4, 3.4]
+x2 = [0.85, -0.85]
+y2 = [1.5, 1.5]
+x3 = [-0.85, -0.85]
+y3 = [3.4, 1.5]
+x4 = [0.85, 0.85]
+y4 = [3.4, 1.5]
+plt.plot(x, y, color='black', linestyle='--')
+plt.plot(x2, y2, color='black', linestyle='--')
+plt.plot(x3, y3, color='black', linestyle='--')
+plt.plot(x4, y4, color='black', linestyle='--')
 
 
 for x in range(len(player)):
