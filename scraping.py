@@ -33,7 +33,7 @@ for i in range(len(pitchers_numbers)):
     #print(pitch_data)
     data.append(pitch_data)
 
-all_pitches = [["type", "px", "pz"]]
+all_pitches = [["pdes", "px", "pz"]]
 
 for i in range(len(data)):
     dataurl = data[i]
@@ -51,7 +51,7 @@ for i in range(len(data)):
 
     # print(pitches)
 
-    pdes = [x[24] for x in pitches]
+    pdes = [x[23] for x in pitches]
     px = [float(x[-6]) for x in pitches]
     pz = [float(x[-5]) for x in pitches]
 
