@@ -51,12 +51,12 @@ for i in range(len(data)):
 
     # print(pitches)
 
-    type = [x[9] for x in pitches]
+    pdes = [x[24] for x in pitches]
     px = [float(x[-6]) for x in pitches]
     pz = [float(x[-5]) for x in pitches]
 
-    for i in range(len(type)):
-        all_pitches.append([type[i], px[i], pz[i]])
+    for i in range(len(pdes)):
+        all_pitches.append([pdes[i], px[i], pz[i]])
 
 print(all_pitches)
 
