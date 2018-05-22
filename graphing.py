@@ -45,3 +45,5 @@ def graph(player):
 
 
     plt.show()
+
+graph([['Ball', 1.5, 1.5]])
