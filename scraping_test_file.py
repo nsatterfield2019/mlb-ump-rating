@@ -18,12 +18,34 @@ day_numbers = []
 year_numbers = []
 data = []
 
+
+
 for months in month:
     numbers = months['value']
+    text = months.text
+    month_numbers.append([numbers, text])
 
-    month_numbers.append(numbers)
-    print(numbers)
+print(month_numbers)
 
+day_select = soup1.find("select", attrs={"name": "day"})
+
+day = day_select.findAll()
+
+for days in day:
+    numbers = days['value']
+    day_numbers.append(numbers)
+
+print(day_numbers)
+
+year_select = soup1.find("select", attrs={"name": "year"})
+
+year = year_select.findAll()
+
+for years in year:
+    numbers = years['value']
+    year_numbers.append(numbers)
+
+print(year_numbers)
 
 '''
 for i in range(len(pitchers_numbers)):
