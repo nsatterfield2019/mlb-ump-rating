@@ -6,8 +6,11 @@ def graph(player):
     player2 = []
 
     for i in range(len(player)): # assigns colors to strikes and balls
-        if player[i][0] == "Called Strike" or player[i][0] == "Swinging Strike":
+        if player[i][0] == "Called Strike":
             player[i].append("red")
+            player2.append(player[i])
+        if player[i][0] == "Swinging Strike":
+            player[i].append("orange")
             player2.append(player[i])
         if player[i][0] == "Ball":
             player[i].append("blue")
