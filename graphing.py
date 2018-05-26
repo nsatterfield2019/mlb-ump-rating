@@ -70,5 +70,5 @@ def graph(player):
 
 
 
-player = [['Ball', 3, 2.5], ['Called Strike', 0, 3], ['Swinging Strike', 1, 1]]
-graph(player)
+#player = [['Ball', 3, 2.5], ['Called Strike', 0, 3], ['Swinging Strike', 1, 1]]
+#graph(player)

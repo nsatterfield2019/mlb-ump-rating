@@ -3,6 +3,8 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from scraping_test_file import *
+from scraping import *
+from graphing import *
 
 class Window(QWidget):
     def __init__(self):
@@ -86,6 +88,30 @@ class Window(QWidget):
         self.gamenumber = [x[0] for x in gamelist]
         self.game.addItems(self.gamename)
 
+        self.games_select = QPushButton("Select Game")
+        self.grid.addWidget(self.games_select, 3, 2, 1, 2)
+
+        self.game_select.clicked.connect(lambda: self.pitch_chart())
+
+        def pitch_chart(self):
+
+            game = self.game.currentText()
+            game_url = self.gamenumber[self.gamename.index(game)]
+
+
+            final_url = url + game_url
+
+            scraping = scrape(final_url)
+            player = []
+
+            for i in range(len(scraping) - 1):
+                player.append(scraping[i + 1])
+
+            graph(player)
+
+
+
+        print(gamelist)
         return(gamelist)
 
 
