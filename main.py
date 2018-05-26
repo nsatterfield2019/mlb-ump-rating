@@ -93,6 +93,7 @@ class Window(QWidget):
 
         self.game_select.clicked.connect(lambda: self.pitch_chart())
 
+        '''
         def pitch_chart(self):
 
             game = self.game.currentText()
@@ -108,8 +109,7 @@ class Window(QWidget):
                 player.append(scraping[i + 1])
 
             graph(player)
-
-
+        '''
 
         print(gamelist)
         return(gamelist)
