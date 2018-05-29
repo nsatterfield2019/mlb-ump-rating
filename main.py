@@ -50,10 +50,16 @@ class Window(QWidget):
 
 
         # Set Style
-        #self.set_style()
+        self.set_style()
+
 
         # Draw
         self.show()
+
+    def set_style(self):
+        style_sheet = "appstyle.css"
+        with open(style_sheet) as f:
+            self.setStyleSheet(f.read())
 
     def game_list(self):
 
