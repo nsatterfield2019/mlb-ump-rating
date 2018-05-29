@@ -91,28 +91,35 @@ class Window(QWidget):
         self.games_select = QPushButton("Select Game")
         self.grid.addWidget(self.games_select, 3, 2, 1, 2)
 
-        self.game_select.clicked.connect(lambda: self.pitch_chart())
-
-        '''
-        def pitch_chart(self):
-
-            game = self.game.currentText()
-            game_url = self.gamenumber[self.gamename.index(game)]
 
 
-            final_url = url + game_url
 
-            scraping = scrape(final_url)
-            player = []
+        self.games_select.clicked.connect(lambda: self.pitch_chart(url, self.game.currentText()))
 
-            for i in range(len(scraping) - 1):
-                player.append(scraping[i + 1])
+        #print(gamelist)
+        #return(gamelist)
 
-            graph(player)
-        '''
+    def pitch_chart(self,url, text):
 
-        print(gamelist)
-        return(gamelist)
+        game = text
+        game_url = self.gamenumber[self.gamename.index(game)]
+
+
+        final_url = url + "&game=" + game_url
+
+
+
+        print(final_url)
+
+        scraping = scrape(final_url)
+        player = []
+
+        for i in range(len(scraping) - 1):
+            player.append(scraping[i + 1])
+
+        graph(player)
+
+
 
 
 
