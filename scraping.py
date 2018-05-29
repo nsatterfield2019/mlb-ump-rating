@@ -62,6 +62,9 @@ def scrape(url):
     return(all_pitches)
 
 
+scrape("http://www.brooksbaseball.net/pfxVB/pfx.php?month=3&day=1&year=2007&game=gid_2007_03_01_arimlb_chamlb_1/")
+
+# http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=9&year=2018&game=gid_2018_05_09_miamlb_chnmlb_1%2F&pitchSel=500779&prevGame=gid_2018_05_09_miamlb_chnmlb_1%2F&prevDate=59&league=mlb
 
 
-
+# http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=24&year=2018&game=gid_2018_05_24_balmlb_chamlb_1%2F&prevGame=gid_2018_05_29_anamlb_detmlb_1%2F&prevDate=524&league=mlb

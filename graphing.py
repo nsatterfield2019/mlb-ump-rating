@@ -21,6 +21,8 @@ def graph(player):
     print(player2)
     print(score, '/', len(player2))
     acc = (score/len(player2)) * 100
+
+
     print(acc)
 
 

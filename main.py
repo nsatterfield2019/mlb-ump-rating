@@ -112,13 +112,14 @@ class Window(QWidget):
         print(final_url)
 
         scraping = scrape(final_url)
-        player = []
-
+        print(scraping)
+        #player = []
+        '''
         for i in range(len(scraping) - 1):
             player.append(scraping[i + 1])
 
         graph(player)
-
+        '''
 
 
 
