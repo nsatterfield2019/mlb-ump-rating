@@ -94,24 +94,26 @@ class Window(QWidget):
 
 
 
-        self.games_select.clicked.connect(lambda: self.pitch_chart(url, self.game.currentText()))
+        self.games_select.clicked.connect(lambda: self.pitch_chart(url, self.game.currentText(), day_num, month_num, year_num))
 
         #print(gamelist)
         #return(gamelist)
 
-    def pitch_chart(self,url, text):
+    def pitch_chart(self,url, text, day, month, year):
 
+        year_num = year
+        day_num = day
+        month_num = month
         game = text
         game_url = self.gamenumber[self.gamename.index(game)]
 
 
-        final_url = url + "&game=" + game_url
-
+        final_url = url + "&game=" + game_url[:-1] + "%2F&prevGame=" + game_url[:-1] + "%2F&prevDate=" + month + day + "&league=mlb"
 
 
         print(final_url)
 
-        scraping = scrape(final_url)
+        scraping = scrape(final_url, game, day_num, month_num, year_num)
         print(scraping)
         #player = []
         '''
