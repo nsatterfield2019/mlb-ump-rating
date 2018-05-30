@@ -1,23 +1,27 @@
-body{
+grid{
     background-image: url("mlb_logo-1.png");
 }
 
 QPushButton{
+    border-radius: 10px;
     font-family: "Helvetica";
     background-color: "tomato";
-    height: 100;
+    height: 30;
     border-width: 0;
     color: white;
-    font-size: 20px;
+    font-size: 12px;
+    outline-width: 2px;
+    outline-color: black;
 }
 
 QComboBox{
-    background-color: "blue";
+    background-color: DodgerBlue;
     color: white;
 }
 
 QLabel{
-    color: green;
-    font-size: 65px;
+    color: Tomato;
+
+    font-size: 35px;
     font-family: "Comic Sans";
 }

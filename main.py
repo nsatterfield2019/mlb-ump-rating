@@ -19,7 +19,7 @@ class Window(QWidget):
 
 
         # Widget
-        self.title = QLabel("Choose a date:")
+        self.title = QLabel("Umpire Rater")
         self.grid.addWidget(self.title, 1, 1, 1, 1)
         self.title.setObjectName("title")
 
@@ -37,7 +37,7 @@ class Window(QWidget):
         self.grid.addWidget(self.year, 2, 4, 1, 1)
         self.year.addItems(year)
 
-        self.date_button = QPushButton("select date")
+        self.date_button = QPushButton("Select Date")
         self.grid.addWidget(self.date_button, 2, 5, 1, 1)
 
 
