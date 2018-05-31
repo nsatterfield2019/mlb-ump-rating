@@ -8,15 +8,26 @@ def graph(player):
 
     for i in range(len(player)): # assigns colors to strikes and balls
         if player[i][0] == "Called Strike":
-            player[i].append("red")
-            player2.append(player[i])
             if player[i][1] >= -8.5/12 and player[i][1] <= 8.5/12 and player[i][2] >= 1.5 and player[i][2] <= 3.4:
                 score += 1
-        if player[i][0] == "Ball":
-            player[i].append("blue")
+                player[i].append(".")
+                player[i].append('22.2')
+            else:
+                player[i].append("x")
+                player[i].append('5')
+            player[i].append("red")
             player2.append(player[i])
+        if player[i][0] == "Ball":
             if player[i][1] <= -8.5/12 or player[i][1] >= 8.5/12 or player[i][2] <= 1.5 or player[i][2] >= 3.4:
                 score += 1
+                player[i].append(".")
+                player[i].append('22.2')
+            else:
+                player[i].append("x")
+                player[i].append('5')
+            player[i].append("blue")
+            player2.append(player[i])
+
 
     print(player2)
     print(score, '/', len(player2))
@@ -47,7 +58,7 @@ def graph(player):
 
     # graphing
     for x in range(len(player2)):
-        plt.plot(player2[x][1], player2[x][2], color=player2[x][3], marker='.', markersize=22.2, alpha=0.3)
+        plt.plot(player2[x][1], player2[x][2], color=player2[x][5], marker=player2[x][3], markersize=player2[x][4], alpha=0.3)
     # labels
     plt.xlabel('x(ft)')
     plt.ylabel('y(ft)')
@@ -55,7 +66,7 @@ def graph(player):
     plt.axis([-4, 4, 0, 6]) # xmin, xmax, ymin, ymax
     plt.annotate('= Ball', xy=(3, 5.6))
     plt.annotate('= Strike', xy=(3, 5.3))
-    plt.annotate('Accuracy = ' + str(acc), xy=(2.7, 5.1))
+    plt.annotate(str(acc), xy=(2.7, 5.1))
     plt.plot(2.8, 5.7, color='blue', marker='.', markersize=15, alpha=0.3)
     plt.plot(2.8, 5.4, color='red', marker='.', markersize=15, alpha=0.3)
 
