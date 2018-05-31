@@ -116,18 +116,20 @@ class Window(QWidget):
 
         final_url = url + "&game=" + game_url[:-1] + "%2F&prevGame=" + game_url[:-1] + "%2F&prevDate=" + month + day + "&league=mlb"
 
+        # url = "http://www.brooksbaseball.net/pfxVB/pfx.php?" + "month=" + month + "&day=" + day + "&year=" + year + "&game=" + gametext[:-1] + "1%2F&prevDate=" + month + day + "&league=mlb"
 
         print(final_url)
 
-        scraping = scrape(final_url, game, day_num, month_num, year_num)
+        scraping = scrape(final_url, game_url, day_num, month_num, year_num)
         print(scraping)
-        #player = []
-        '''
+
+        player = []
+
         for i in range(len(scraping) - 1):
             player.append(scraping[i + 1])
 
         graph(player)
-        '''
+
 
 
 

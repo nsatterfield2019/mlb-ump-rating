@@ -6,6 +6,7 @@ import requests
 
 def scrape(url, gametext, day, month, year):
 #url = "http://www.brooksbaseball.net/pfxVB/pfx.php?month=5&day=9&year=2018&game=gid_2018_05_09_miamlb_chnmlb_1%2F&pitchSel=500779&prevGame=gid_2018_05_09_miamlb_chnmlb_1%2F&prevDate=59&league=mlb"
+# url = "http://www.brooksbaseball.net/pfxVB/pfx.php?" + "month=" + month + "&day=" + day + "&year=" + year + "&game=" + gametext[:-1] + "1%2F&prevDate=" + month + day + "&league=mlb"
 
     page = requests.get(url)
 
@@ -24,7 +25,7 @@ def scrape(url, gametext, day, month, year):
         print(numbers)
 
     for i in range(len(pitchers_numbers)):
-        url = "http://www.brooksbaseball.net/pfxVB/pfx.php?" + "month=" + month + "&day=" + day + "&year=" + year + "&game=" + gametext[:-1] + "1%2F&pitchSel=" + pitchers_numbers[i] + "%2F&prevGame=" + gametext[:-1] + "%2F&prevDate=" + month + day + "&league=mlb"
+        url = "http://www.brooksbaseball.net/pfxVB/pfx.php?" + "month=" + month + "&day=" + day + "&year=" + year + "&game=" + gametext[:-1] + "%2F&pitchSel=" + pitchers_numbers[i] + "%2F&prevGame=" + gametext[:-1] + "%2F&prevDate=" + month + day + "&league=mlb"
         print(url)
         page = requests.get(url)
         soup = BeautifulSoup(page.text, "html.parser")
