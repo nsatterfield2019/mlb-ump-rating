@@ -4,7 +4,7 @@ grid{
 
 QPushButton{
     border-radius: 10px;
-    font-family: "Helvetica";
+    font-family: "Console";
     background-color: "tomato";
     height: 30;
     border-width: 0;
@@ -15,13 +15,13 @@ QPushButton{
 }
 
 QComboBox{
-    background-color: DodgerBlue;
-    color: white;
+    background-color: LightGray;
+    color: DarkBlue;
 }
 
 QLabel{
     color: Tomato;
 
-    font-size: 35px;
-    font-family: "Comic Sans";
+    font-size: 40px;
+    font-family: "Times New Roman", Times, serif;
 }

@@ -40,7 +40,12 @@ class Window(QWidget):
         self.date_button = QPushButton("Select Date")
         self.grid.addWidget(self.date_button, 2, 5, 1, 1)
 
+        self.image = QLabel("")
+        self.grid.addWidget(self.image, 1, 4, 1, 1)
 
+        pixmap = QPixmap('mlb_logo-1.png')
+        pixmap = pixmap.scaledToWidth(280)
+        self.image.setPixmap(pixmap)
 
 
 
@@ -96,7 +101,6 @@ class Window(QWidget):
 
         self.games_select = QPushButton("Select Game")
         self.grid.addWidget(self.games_select, 3, 2, 1, 2)
-
 
 
 
