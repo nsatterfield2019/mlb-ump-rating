@@ -1,5 +1,5 @@
-QApplication{
-    background-color: Green;
+QWidget{
+    background-color: MintCream;
 }
 
 QPushButton{
