@@ -1,3 +1,6 @@
+QApplication{
+    background-color: Green;
+}
 
 QPushButton{
     border-radius: 10px;
