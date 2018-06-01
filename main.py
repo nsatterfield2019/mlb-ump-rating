@@ -17,28 +17,31 @@ class Window(QWidget):
 
         month, day, year = data_scrape("http://www.brooksbaseball.net/pfxVB/pfx.php")
 
-
         # Widget
         self.title = QLabel("Umpire Rater")
         self.grid.addWidget(self.title, 1, 1, 1, 1)
         self.title.setObjectName("title")
 
+        self.description = QLabel("Select a date and game to see called strikes and balls plus the umpires accuracy")
+        self.grid.addWidget(self.description, 2, 1, 1, 1)
+        self.description.setObjectName("descript")
+
         self.month = QComboBox(self)
-        self.grid.addWidget(self.month, 2, 1, 1, 2)
+        self.grid.addWidget(self.month, 3, 1, 1, 2)
         self.monthname = [x[1] for x in month]
         self.monthnumber = [x[0] for x in month]
         self.month.addItems(self.monthname)
 
         self.day = QComboBox(self)
-        self.grid.addWidget(self.day, 2, 3, 1, 1)
+        self.grid.addWidget(self.day, 3, 3, 1, 1)
         self.day.addItems(day)
 
         self.year = QComboBox(self)
-        self.grid.addWidget(self.year, 2, 4, 1, 1)
+        self.grid.addWidget(self.year, 3, 4, 1, 1)
         self.year.addItems(year)
 
         self.date_button = QPushButton("Select Date")
-        self.grid.addWidget(self.date_button, 2, 5, 1, 1)
+        self.grid.addWidget(self.date_button, 3, 5, 1, 1)
 
         self.image = QLabel("")
         self.grid.addWidget(self.image, 1, 4, 1, 1)
@@ -94,13 +97,13 @@ class Window(QWidget):
 
 
         self.game = QComboBox(self)
-        self.grid.addWidget(self.game, 3, 1, 1, 1)
+        self.grid.addWidget(self.game, 4, 1, 1, 1)
         self.gamename = [x[1] for x in gamelist]
         self.gamenumber = [x[0] for x in gamelist]
         self.game.addItems(self.gamename)
 
         self.games_select = QPushButton("Select Game")
-        self.grid.addWidget(self.games_select, 3, 2, 1, 2)
+        self.grid.addWidget(self.games_select, 4, 2, 1, 2)
 
 
 
