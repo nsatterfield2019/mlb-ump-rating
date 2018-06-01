@@ -20,7 +20,7 @@ QComboBox{
     color: DarkBlue;
 }
 
-QLabel#label{
+QLabel#title{
     color: Tomato;
 
     font-size: 40px;
