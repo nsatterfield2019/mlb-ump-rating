@@ -7,7 +7,7 @@ def graph(player):
 
     # Creating new pitch list and assigning attributes ----
     for i in range(len(player)): # assigns colors to strikes and balls
-        if player[i][0] == "Called Strike" or player[i][0] == "Swinging Strike":
+        if player[i][0] == "Called Strike":
             if player[i][1] >= -8.5/12 and player[i][1] <= 8.5/12 and player[i][2] >= 1.5 and player[i][2] <= 3.4:
                 score += 1
                 player[i].append(".")
