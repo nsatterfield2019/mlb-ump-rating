@@ -1,12 +1,13 @@
 import matplotlib.pyplot as plt
 
+
 def graph(player):
 
     player2 = []
     score = 0
 
     # Creating new pitch list and assigning attributes ----
-    for i in range(len(player)): # assigns colors to strikes and balls
+    for i in range(len(player)):  # assigns colors to strikes and balls
         if player[i][0] == "Called Strike":
             if player[i][1] >= -8.5/12 and player[i][1] <= 8.5/12 and player[i][2] >= 1.5 and player[i][2] <= 3.4:
                 score += 1
@@ -37,7 +38,6 @@ def graph(player):
     print(player2)
     # -----------------------------------------------------
 
-
     # Ump acc ---
     print(score, '/', len(player2))
     try:
@@ -46,7 +46,6 @@ def graph(player):
         acc = "ERROR"
     print(acc)
     # -----------
-
 
     # matplotlib stuff VVV
 
@@ -66,7 +65,6 @@ def graph(player):
     plt.plot(x3, y3, color='black', linestyle='--')
     plt.plot(x4, y4, color='black', linestyle='--')
     # ----------------
-
 
     # plotting the pitches
     for x in range(len(player2)):
